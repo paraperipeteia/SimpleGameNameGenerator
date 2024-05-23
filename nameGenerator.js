@@ -3,6 +3,7 @@ ApplyLogicToGeneratorButton();
 ApplyLogicToCopyButton();
 FlashTitle();
 var defaultTextColor = '#4CAF50';
+
 const adj = 
     [
         "Road", 
@@ -140,24 +141,13 @@ const preModifier =
         "Carnage",
         "Ravenous",
         "Final"
-    ]
+    ];
 
 var list = [adj, noun, symbols, preModifier, modifier];
 var result = "";
 
-/*
-for (var i = 0; i < 50; i++)
+function ApplyLogicToGeneratorButton()
 {
-     result += `${DoResult()}\n`; 
-}
-console.log(result); 
-*/
-
-// todo - add a button to generate a name
-// todo - display the generated name in the "bottomHeader" 
-// todo - add a button to copy the name to the clipboard
-
-function ApplyLogicToGeneratorButton(){
     var button = document.getElementById("generateButton");
     button.addEventListener("click", () => GenerateName());
 }
@@ -176,8 +166,6 @@ function GenerateName()
 function CopyToClipboard()
 {
     var copyText = document.getElementById("bottomHeader").innerHTML;
-    //    copyText.select();
-    // Copy the text inside the text field
     navigator.clipboard.writeText(copyText);
     document.execCommand("copy");
     alert("Copied the text: " + copyText);
@@ -200,10 +188,9 @@ function DoResult()
     return result; 
 }
 
-function FlashTitle(){
+function FlashTitle()
+{
     var current = document.getElementById("topHeader").style.color;
     document.getElementById("topHeader").style.color = current == "orange" ? defaultTextColor : "orange";
     setTimeout(() => FlashTitle(), 300);
 }
-
-
